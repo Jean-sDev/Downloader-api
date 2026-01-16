@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Download API – Documentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <h2>Download API</h2>
+    <a href="/">🏠 Accueil</a>
+  </nav>
+
+  <div class="docs">
+    <h1>📘 Documentation officielle</h1>
+
+    <p>
+      Bienvenue sur la documentation de  
+      <b>download-api.lordobitotech.xyz</b>
+    </p>
+
+    <p>
+      Cette API permet de télécharger des contenus depuis :
+    </p>
+    <ul>
+      <li>YouTube (audio & vidéo)</li>
+      <li>TikTok (vidéo & musique)</li>
+    </ul>
+
+    <hr>
+
+    <h2>🌍 Base URL</h2>
+    <pre>https://download-api.lordobitotech.xyz</pre>
+
+    <hr>
+
+    <h2>🎵 Télécharger un audio (commande play)</h2>
+
+    <p><b>Endpoint :</b></p>
+    <pre>GET /api/play?query=never gonna give you up</pre>
+
+    <p><b>Description :</b>  
+    Recherche une vidéo YouTube par mot-clé et retourne un lien audio.</p>
+
+    <p><b>Réponse :</b></p>
+    <pre>{
+  "status": true,
+  "result": {
+    "title": "Never Gonna Give You Up",
+    "duration": "3:33",
+    "views": 123456789,
+    "thumbnail": "https://...",
+    "download_url": "https://..."
+  }
+}</pre>
+
+    <h3>🤖 Exemple BOT (Baileys)</h3>
+    <pre>
+axios.get(
+  'https://download-api.lordobitotech.xyz/api/play?query=never gonna give you up'
+)
+    </pre>
+
+    <hr>
+
+    <h2>🎥 Télécharger une vidéo (commande yt)</h2>
+
+    <p><b>Endpoint :</b></p>
+    <pre>GET /api/yt?query=never gonna give you up</pre>
+
+    <p><b>Description :</b>  
+    Recherche YouTube par mot-clé et retourne la vidéo en mp4.</p>
+
+    <h3>🤖 Exemple BOT</h3>
+    <pre>
+axios.get(
+  'https://download-api.lordobitotech.xyz/api/yt?query=never gonna give you up'
+)
+    </pre>
+
+    <hr>
+
+    <h2>🎶 Télécharger depuis TikTok</h2>
+
+    <p><b>Endpoint :</b></p>
+    <pre>GET /api/tiktok?url=https://www.tiktok.com/...</pre>
+
+    <p><b>Description :</b>  
+    Retourne la vidéo TikTok sans watermark + l’audio.</p>
+
+    <hr>
+
+    <h2>🌐 Utilisation côté site web</h2>
+
+    <pre>
+fetch('/api/play?query=test')
+  .then(r => r.json())
+  .then(console.log)
+    </pre>
+
+    <hr>
+
+    <h2>⚠️ Informations importantes</h2>
+    <ul>
+      <li>Aucune authentification pour l’instant</li>
+      <li>Usage personnel / éducatif recommandé</li>
+      <li>Les liens sont générés dynamiquement</li>
+    </ul>
+
+    <p style="margin-top:40px;opacity:.6">
+      © 2026 – lordobitotech
+    </p>
+  </div>
+
+</body>
+  </html>
